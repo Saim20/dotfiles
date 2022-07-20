@@ -5,7 +5,6 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 Plug 'vim-airline/vim-airline'
 
 " Visual Settings
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 " Color theme plugins
@@ -17,6 +16,9 @@ Plug 'github/copilot.vim'
 " Snippets
 Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim'
+
+" Folder structure
+Plug 'preservim/nerdtree'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -36,7 +38,6 @@ colorscheme onedark
 
 " For LimeLight
 " Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 " Color name (:help gui-colors) or RGB color
 let g:limelight_conceal_guifg = 'DarkGray'
@@ -50,6 +51,33 @@ let g:limelight_paragraph_span = 0
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
+
+"Changing default NERDTree arrows
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+
+nmap <leader>do <Plug>(coc-codeaction)
+
+nmap <leader>rn <Plug>(coc-rename)
+
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-prettier',
+  \ 'coc-clangd',
+  \ ]
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
