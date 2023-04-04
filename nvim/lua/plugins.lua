@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
 	-- use 'foo2/bar2.nvim'
 
 	use 'vim-airline/vim-airline'
+
 	use 'navarasu/onedark.nvim'
 
 	use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
@@ -25,10 +26,6 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
 	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 	use 'L3MON4D3/LuaSnip' -- Snippets plugin
-
-	use 'github/copilot.vim' -- Copilot
-
-	use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

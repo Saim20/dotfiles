@@ -1,7 +1,6 @@
 require('plugins')
 
 require'lspconfig'.pyright.setup{}
-require("flutter-tools").setup{} -- use defaults
 
 require('onedark').setup{ style='warm' }
 require('onedark').load()
@@ -13,10 +12,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         virtual_text = false
     }
 )
-
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
