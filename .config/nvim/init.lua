@@ -1,7 +1,6 @@
 require('plugins')
 
 require'lspconfig'.pyright.setup{}
-require("flutter-tools").setup{} -- use defaults
 
 require('onedark').setup{ style='warm' }
 require('onedark').load()
