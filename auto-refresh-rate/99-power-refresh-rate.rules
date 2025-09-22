@@ -1,0 +1,9 @@
+# /etc/udev/rules.d/99-power-refresh-rate.rules
+# Automatically adjust display refresh rate based on power state
+# 300Hz on AC power, 60Hz on battery
+
+# AC adapter plugged in - set 300Hz
+SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", RUN+="/usr/local/bin/set-refresh-rate.sh ac"
+
+# AC adapter unplugged - set 60Hz  
+SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", RUN+="/usr/local/bin/set-refresh-rate.sh dc"
